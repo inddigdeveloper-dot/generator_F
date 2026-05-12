@@ -24,6 +24,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+        env:
+          VITE_API_URL: https://generator-production-9510.up.railway.app
+          VITE_GOOGLE_CLIENT_ID: 918206864427-rai28p0gpcvnkglpimtcardatv9j3ee8.apps.googleusercontent.com
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
