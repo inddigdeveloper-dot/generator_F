@@ -52,7 +52,7 @@ export default function App() {
     return (
         <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
             <AuthProvider>
-                <BrowserRouter basename="/generator_F">
+                <BrowserRouter>
                     <AppContent />
                 </BrowserRouter>
             </AuthProvider>
