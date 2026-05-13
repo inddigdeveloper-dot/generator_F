@@ -130,7 +130,7 @@ export default function EditBusinessPage() {
                         {success && <div className="alert alert-success">{success}</div>}
                         {error   && <div className="alert alert-error">{error}</div>}
 
-                        {/* ── Google Places Search ── */}
+                        {/* ── Google Places Search ──
                         {MAPS_KEY && (
                             <div className="form-group eb-places-group">
                                 <label className="form-label">Find on Google</label>
@@ -149,7 +149,7 @@ export default function EditBusinessPage() {
                                     : <p className="eb-field-hint">Type your business name to auto-fill all fields from Google.</p>
                                 }
                             </div>
-                        )}
+                        )} */}
 
                         <div className="form-group">
                             <label className="form-label">Business Name</label>
