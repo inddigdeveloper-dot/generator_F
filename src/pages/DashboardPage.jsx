@@ -29,7 +29,7 @@ export default function DashboardPage() {
     useEffect(() => {
         if (!reviewUrl) return;
         getQRCode()
-            .then(d => { if (d?.qr_code_url) setQrSrc(`${API_URL}${d.qr_code_url}`); })
+            .then(d => { if (d?.qr_code_url) setQrSrc(d.qr_code_url); })
             .catch(() => {
                 setQrSrc(`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(reviewUrl)}`);
             });
