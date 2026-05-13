@@ -16,7 +16,6 @@ export default function LoginPage() {
             <div className="auth-card">
                 <Link to="/" className="auth-logo">
                     <InddigLogo size={100} />
-                    {/* <span className="auth-logo-text">inddig<span>media</span></span> */}
                 </Link>
 
                 <div className="auth-header">

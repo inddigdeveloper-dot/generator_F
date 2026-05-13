@@ -99,6 +99,26 @@
   box-shadow: 0 2px 8px rgba(236, 27, 36, 0.3);
 }
 
+/* ─── Sign in (unauthenticated) ──────────────────────────────────────────── */
+.nav-btn-signin {
+  padding: 6px 16px;
+  border-radius: var(--r-sm);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+  background: var(--btn-ghost-bg);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.18s var(--ease);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.nav-btn-signin:hover {
+  color: var(--brand-red);
+  border-color: rgba(236, 27, 36, 0.45);
+  background: rgba(236, 27, 36, 0.06);
+}
+
 /* ─── Logout ─────────────────────────────────────────────────────────────── */
 .nav-btn-logout {
   padding: 6px 13px;
