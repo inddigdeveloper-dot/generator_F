@@ -199,8 +199,15 @@ export default function EditBusinessPage() {
                                 onChange={handlePlaceIdChange}
                             />
                             <p className="eb-field-hint">
-                                Required for QR code generation and directing customers to your Google review page.
-                                {!MAPS_KEY && <> <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" rel="noopener noreferrer">How to find it →</a></>}                            </p>
+                                Required for QR code generation and directing customers to your Google review page.{" "}
+                                <a
+                                    href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    How to find it →
+                                </a>
+                            </p>
                         </div>
 
                         <div className="form-group">
