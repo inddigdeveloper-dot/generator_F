@@ -1,4 +1,4 @@
-import LogoEye from '../assets/logo-eye.webp';
+import LogoEye from '../assets/logo-eye1.webp';
 
 export default function InddigLogo({ size = 28, className = "" }) {
   return (
