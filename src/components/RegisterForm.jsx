@@ -8,6 +8,7 @@ export default function RegisterForm() {
         name: "", user_name: "", business_name: "",
         email: "", mobile_no: "", password: "",
         review_link: "", business_desc: "", seo_keyword: "",
+        google_place_id: "",
     });
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
@@ -80,6 +81,23 @@ export default function RegisterForm() {
                 <label className="form-label">Google Review Link</label>
                 <input className="form-input" name="review_link" placeholder="https://g.page/review/..."
                     value={formData.review_link} onChange={handleChange} />
+            </div>
+
+            <div className="form-group">
+                <label className="form-label">Google Place ID</label>
+                <input className="form-input" name="google_place_id"
+                    placeholder="e.g. ChIJN1t_tDeuEmsRUsoyG83frY4"
+                    value={formData.google_place_id} onChange={handleChange} />
+                <p className="eb-field-hint">
+                    Required for QR code generation and directing customers to your Google review page.{" "}
+                    <a
+                        href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        How to find it →
+                    </a>
+                </p>
             </div>
 
             <div className="form-group">
