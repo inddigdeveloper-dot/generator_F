@@ -272,6 +272,33 @@ input, textarea, select { font-family: inherit; }
   color: #059669;
 }
 [data-theme="dark"] .alert-success { color: #6ee7b7; }
+
+/* ─── Field hint (shared by RegisterForm + EditBusiness) ─────────────────── */
+.eb-field-hint {
+  display: block;
+  font-size: 13px;
+  color: var(--text-3);
+  margin-top: 6px;
+  line-height: 1.55;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+.eb-field-hint a {
+  display: inline-block;
+  margin-left: 4px;
+  margin-top: 4px;
+  color: var(--brand-red) !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.eb-field-hint a:hover { color: var(--brand-maroon) !important; }
+@media (max-width: 640px) {
+  .eb-field-hint a { margin-left: 0; }
+}
+
 /* Mobile safety helpers */
 img, svg, video, canvas { max-width: 100%; }
 input, textarea, select, button { font-size: 16px; }

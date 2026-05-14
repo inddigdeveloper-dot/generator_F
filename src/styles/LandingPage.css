@@ -196,9 +196,9 @@
   .landing-stats { gap: 24px; flex-wrap: wrap; }
 }
 @media (max-width: 640px) {
-  .landing-page { padding: 76px 14px 40px; }
-  .hero-title { font-size: clamp(32px, 12vw, 54px); line-height: 1.04; }
-  .hero-subtitle { font-size: 16px; }
+  .landing { padding: 76px 14px 40px; }
+  .landing-title { font-size: clamp(32px, 12vw, 54px); line-height: 1.04; }
+  .landing-subtitle { font-size: 16px; }
   .landing-cta { flex-direction: column; width: 100%; }
   .landing-cta .btn { width: 100%; min-width: 0; padding: 13px 18px; }
   .landing-features { gap: 14px; }

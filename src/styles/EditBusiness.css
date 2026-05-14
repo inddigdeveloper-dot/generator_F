@@ -46,30 +46,6 @@
   box-shadow: 0 0 0 3px rgba(236, 27, 36, 0.12);
 }
 
-.eb-field-hint {
-  display: block;
-  font-size: 13px;
-  color: var(--text-3);
-  margin-top: 6px;
-  line-height: 1.5;
-  white-space: normal;
-  overflow: visible;
-  overflow-wrap: anywhere;
-}
-
-.eb-field-hint a {
-  display: inline-block;
-  margin-left: 4px;
-  color: var(--brand-red);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  white-space: nowrap;
-}
-
-.eb-field-hint a:hover {
-  color: var(--brand-maroon);
-}
 
 .eb-save-btn {
   width: 100%;
@@ -175,28 +151,5 @@
 @media (max-width: 640px) {
   .eb-layout {
     gap: 16px;
-  }
-
-  .eb-card,
-  .eb-preview-card {
-    border-radius: var(--r-lg);
-  }
-
-  .eb-actions {
-    position: sticky;
-    bottom: 0;
-    padding-bottom: max(12px, env(safe-area-inset-bottom));
-    background: var(--bg);
-  }
-
-  .eb-field-hint {
-    font-size: 13px;
-    line-height: 1.55;
-  }
-
-  .eb-field-hint a {
-    display: inline-block;
-    margin-top: 4px;
-    margin-left: 0;
   }
 }

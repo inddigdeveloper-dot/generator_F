@@ -56,7 +56,6 @@
   color: var(--brand-orange);
 }
 @media (max-width: 640px) {
-  .orders-page { padding-left: 14px; padding-right: 14px; }
-  .order-card { padding: 14px; }
-  .order-meta, .order-title { overflow-wrap: anywhere; }
+  .oh-panel { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .oh-table th, .oh-table td { padding: 10px 8px; font-size: 13px; }
 }
