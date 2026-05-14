@@ -9,17 +9,17 @@ export default function EditBusinessPage() {
     const { user, login } = useAuth();
 
     const [form, setForm] = useState({
-        business_name:   user?.business_name        || "",
-        business_desc:   user?.business_desc        || "",
-        mobile_no:       user?.mobile_no            || "",
-        google_place_id: user?.google_place_id      || "",
-        review_link:     user?.review_link          || "",
-        seo_keyword:     user?.seo_keyword?.join(", ") || "",
+        business_name: user?.business_name || "",
+        business_desc: user?.business_desc || "",
+        mobile_no: user?.mobile_no || "",
+        google_place_id: user?.google_place_id || "",
+        review_link: user?.review_link || "",
+        seo_keyword: user?.seo_keyword?.join(", ") || "",
     });
-    const [saving,      setSaving]      = useState(false);
-    const [success,     setSuccess]     = useState("");
-    const [error,       setError]       = useState("");
-    const [mapsLoaded,  setMapsLoaded]  = useState(false);
+    const [saving, setSaving] = useState(false);
+    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("");
+    const [mapsLoaded, setMapsLoaded] = useState(false);
     const [placeChosen, setPlaceChosen] = useState(false);
     const searchRef = useRef(null);
     const autocompleteRef = useRef(null);
@@ -56,11 +56,11 @@ export default function EditBusinessPage() {
             setError("");
             setForm(prev => ({
                 ...prev,
-                business_name:   place.name || prev.business_name,
+                business_name: place.name || prev.business_name,
                 google_place_id: place.place_id,
-                review_link:     `https://search.google.com/local/writereview?placeid=${place.place_id}`,
-                mobile_no:       place.formatted_phone_number?.replace(/\s/g, "") || prev.mobile_no,
-                business_desc:   place.editorial_summary?.overview || place.formatted_address || prev.business_desc,
+                review_link: `https://search.google.com/local/writereview?placeid=${place.place_id}`,
+                mobile_no: place.formatted_phone_number?.replace(/\s/g, "") || prev.mobile_no,
+                business_desc: place.editorial_summary?.overview || place.formatted_address || prev.business_desc,
             }));
         });
 
@@ -96,7 +96,7 @@ export default function EditBusinessPage() {
                 seo_keyword: form.seo_keyword.split(",").map(k => k.trim()).filter(Boolean),
             };
             await updateUserProfile(payload);
-            const token   = localStorage.getItem("token");
+            const token = localStorage.getItem("token");
             const refresh = localStorage.getItem("refresh_token");
             if (token && refresh) await login(token, refresh);
             setSuccess("Business profile updated successfully!");
@@ -128,7 +128,7 @@ export default function EditBusinessPage() {
                         </div>
 
                         {success && <div className="alert alert-success">{success}</div>}
-                        {error   && <div className="alert alert-error">{error}</div>}
+                        {error && <div className="alert alert-error">{error}</div>}
 
                         {/* ── Google Places Search ──
                         {MAPS_KEY && (
@@ -200,8 +200,7 @@ export default function EditBusinessPage() {
                             />
                             <p className="eb-field-hint">
                                 Required for QR code generation and directing customers to your Google review page.
-                                {!MAPS_KEY && <> <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" rel="noopener noreferrer">How to find it →</a></>}
-                            </p>
+                                {!MAPS_KEY && <> <a href="https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder" target="_blank" rel="noopener noreferrer">How to find it →</a></>}                            </p>
                         </div>
 
                         <div className="form-group">
