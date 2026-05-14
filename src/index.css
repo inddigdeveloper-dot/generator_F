@@ -272,3 +272,14 @@ input, textarea, select { font-family: inherit; }
   color: #059669;
 }
 [data-theme="dark"] .alert-success { color: #6ee7b7; }
+/* Mobile safety helpers */
+img, svg, video, canvas { max-width: 100%; }
+input, textarea, select, button { font-size: 16px; }
+html { -webkit-text-size-adjust: 100%; }
+
+@supports (padding: max(0px)) {
+  body {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+}

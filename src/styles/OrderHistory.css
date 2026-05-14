@@ -55,3 +55,8 @@
   border: 1px solid rgba(232, 84, 29, 0.25);
   color: var(--brand-orange);
 }
+@media (max-width: 640px) {
+  .orders-page { padding-left: 14px; padding-right: 14px; }
+  .order-card { padding: 14px; }
+  .order-meta, .order-title { overflow-wrap: anywhere; }
+}

@@ -439,3 +439,12 @@
   border: 1px solid rgba(236, 27, 36, 0.25);
   color: var(--brand-red-dark);
 }
+@media (max-width: 480px) {
+  .review-page { padding: 14px 10px; }
+  .review-card { max-width: none; border-radius: var(--r-lg); }
+  .review-header, .review-section, .review-footer { padding-left: 14px; padding-right: 14px; }
+  .rating-row { gap: 6px; }
+  .rating-star { width: 42px; height: 42px; }
+  .review-actions { grid-template-columns: 1fr; }
+  .review-business-name, .review-text { overflow-wrap: anywhere; }
+}

@@ -172,3 +172,8 @@
 .auth-footer a:hover { color: var(--brand-orange); }
 
 .auth-card-wide { max-width: 560px; }
+@media (max-width: 640px) {
+  .auth-page { padding: 76px 14px 32px; }
+  .auth-card { padding: 26px 18px; border-radius: var(--r-lg); }
+  .auth-title { font-size: clamp(24px, 8vw, 32px); }
+}

@@ -193,3 +193,10 @@
   .sr-layout { grid-template-columns: 1fr; }
   .inner-page { padding: 76px 16px 40px; }
 }
+@media (max-width: 640px) {
+  .inner-page { padding: 76px 14px 32px; }
+  .sr-card, .sr-output-card { padding: 20px 16px; border-radius: var(--r-lg); }
+  .sr-tone-row { display: grid; grid-template-columns: 1fr; }
+  .sr-tone-btn { min-height: 42px; white-space: normal; }
+  .sr-review-text, .sr-reply-output { overflow-wrap: anywhere; }
+}

@@ -389,3 +389,23 @@
 .sp-toggle  { padding: 7px 16px; border-radius: var(--r-md); font-size: 13px; font-weight: 500; background: var(--btn-ghost-bg); border: 1px solid var(--border); color: var(--text-2); cursor: pointer; transition: all 0.18s; }
 .sp-toggle--on { background: var(--brand-red); border-color: var(--brand-red-dark); color: #fff; font-weight: 600; }
 .sp-check   { font-size: 11px; }
+@media (max-width: 640px) {
+  .dashboard-page { padding: 76px 14px 32px; }
+  .dash-shell { gap: 16px; }
+  .dash-title { font-size: clamp(24px, 8vw, 34px); line-height: 1.1; overflow-wrap: anywhere; }
+  .dash-subtitle { font-size: 14px; }
+  .stat-card { padding: 14px; min-width: 0; }
+  .stat-label, .stat-value { white-space: normal; overflow-wrap: anywhere; }
+  .dash-main { gap: 16px; }
+  .qr-frame { width: min(184px, 64vw); height: min(184px, 64vw); }
+  .qr-actions { grid-template-columns: 1fr; }
+  .share-row { flex-wrap: wrap; gap: 8px; }
+  .share-label, .share-url { white-space: normal; overflow-wrap: anywhere; }
+  .form-grid { grid-template-columns: 1fr; }
+  .sp-toggle-group { display: grid; grid-template-columns: 1fr; }
+  .sp-toggle { white-space: normal; min-height: 42px; }
+}
+
+@media (max-width: 520px) {
+  .dash-stats { grid-template-columns: 1fr; }
+}

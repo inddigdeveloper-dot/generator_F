@@ -105,3 +105,8 @@
 @media (max-width: 900px) {
   .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
 }
+@media (max-width: 640px) {
+  .pricing-grid { max-width: none; gap: 16px; }
+  .pricing-card { padding: 24px 18px; }
+  .price-badge { white-space: normal; text-align: center; }
+}
