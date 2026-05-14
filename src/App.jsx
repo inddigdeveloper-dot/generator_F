@@ -63,7 +63,7 @@ function AppContent() {
 export default function App() {
     return (
         <AuthProvider>
-            <BrowserRouter basename="/generator_F">
+            <BrowserRouter basename="/">
                 <AppContent />
             </BrowserRouter>
         </AuthProvider>
