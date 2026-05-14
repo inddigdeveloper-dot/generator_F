@@ -38,7 +38,7 @@ export default function Navbar() {
         <>
             <nav className="navbar">
                 <Link to="/" className="navbar-brand" aria-label="Go to home">
-                    <InddigLogo size={200} />
+                    <InddigLogo size={84} />
                 </Link>
 
                 {user && (
