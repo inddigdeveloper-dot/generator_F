@@ -47,16 +47,24 @@
 }
 
 .eb-field-hint {
-  font-size: 12px;
+  display: block;
+  font-size: 13px;
   color: var(--text-3);
-  margin-top: 5px;
+  margin-top: 6px;
+  line-height: 1.5;
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
 }
 
 .eb-field-hint a {
+  display: inline-block;
+  margin-left: 4px;
   color: var(--brand-red);
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
+  white-space: nowrap;
 }
 
 .eb-field-hint a:hover {
@@ -179,5 +187,16 @@
     bottom: 0;
     padding-bottom: max(12px, env(safe-area-inset-bottom));
     background: var(--bg);
+  }
+
+  .eb-field-hint {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .eb-field-hint a {
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 0;
   }
 }
