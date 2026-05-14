@@ -10,7 +10,6 @@ const RegisterPage     = lazy(() => import("./pages/RegisterPage"));
 const LoginPage        = lazy(() => import("./pages/LoginPage"));
 const DashboardPage    = lazy(() => import("./pages/DashboardPage"));
 const SmartReplyPage   = lazy(() => import("./pages/SmartReplyPage"));
-const PricingPage      = lazy(() => import("./pages/PricingPage"));
 const EditBusinessPage = lazy(() => import("./pages/EditBusinessPage"));
 const OrderHistoryPage = lazy(() => import("./pages/OrderHistoryPage"));
 const ReviewPage       = lazy(() => import("./pages/ReviewPage"));
@@ -29,7 +28,6 @@ function AppContent() {
                     <Route path="/r/:username" element={<ReviewPage />} />
 
                     <Route path="/" element={<LandingPage />} />
-                    <Route path="/pricing" element={<PricingPage />} />
 
                     <Route path="/register" element={
                         <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>

@@ -8,7 +8,6 @@ import "../styles/Navbar.css";
 const NAV_LINKS = [
     { to: "/dashboard",     label: "Dashboard" },
     { to: "/smart-reply",   label: "Smart Reply" },
-    { to: "/pricing",       label: "Pricing" },
     { to: "/order-history", label: "Order History" },
     { to: "/edit-business", label: "Edit Business" },
 ];
