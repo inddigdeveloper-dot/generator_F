@@ -310,3 +310,39 @@ html { -webkit-text-size-adjust: 100%; }
     padding-right: env(safe-area-inset-right);
   }
 }
+/* ─── Shared page mobile/layout fixes ─── */
+.inner-page {
+  min-height: 100dvh;
+  padding: calc(92px + 30px) clamp(16px, 3vw, 32px) 44px;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.inner-page-body {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .inner-page {
+    padding: calc(74px + 22px) 16px 36px;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .page-sub,
+  .eb-field-hint {
+    font-size: 13px;
+  }
+}

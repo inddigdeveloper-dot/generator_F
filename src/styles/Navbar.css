@@ -295,3 +295,34 @@
     padding: 6px 10px;
   }
 }
+/* ─── Mobile overflow/header fixes ─── */
+.navbar {
+  min-width: 0;
+}
+
+@media (max-width: 960px) {
+  .navbar {
+    padding: 0 14px;
+  }
+
+  .navbar-right {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    gap: 8px;
+  }
+
+  .nav-btn-logout {
+    display: none;
+  }
+
+  .theme-toggle,
+  .nav-avatar,
+  .mobile-menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+}

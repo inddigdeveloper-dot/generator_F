@@ -153,3 +153,72 @@
     gap: 16px;
   }
 }
+/* ─── Responsive fixes for Edit Business ─── */
+.eb-layout {
+  width: 100%;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.eb-form,
+.eb-info,
+.eb-info .panel {
+  min-width: 0;
+}
+
+.form-input,
+.form-textarea {
+  max-width: 100%;
+}
+
+.eb-info-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 960px) {
+  .eb-layout {
+    grid-template-columns: minmax(0, 1fr) 280px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .eb-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .eb-info {
+    order: -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .eb-layout {
+    gap: 14px;
+  }
+
+  .eb-info-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 4px;
+  }
+
+  .eb-info-value {
+    text-align: left;
+  }
+
+  .eb-plan-tag {
+    width: max-content;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .eb-save-btn {
+    min-height: 48px;
+  }
+}

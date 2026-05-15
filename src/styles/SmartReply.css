@@ -1,7 +1,9 @@
 /* ─── Shared inner-page shell ────────────────────────────────────────────── */
 .inner-page {
   min-height: 100dvh;
-  padding: 80px 32px 40px;
+  padding: calc(92px + 30px) clamp(16px, 3vw, 32px) 44px;
+  width: 100%;
+  overflow-x: clip;
   position: relative;
 }
 .inner-page::before {
@@ -22,7 +24,7 @@
 .inner-page-body {
   position: relative;
   z-index: 1;
-  max-width: 1100px;
+  width: min(100%, 1100px);
   margin: 0 auto;
 }
 
