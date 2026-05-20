@@ -78,12 +78,6 @@ export default function RegisterForm() {
             </div>
 
             <div className="form-group">
-                <label className="form-label">Google Review Link</label>
-                <input className="form-input" name="review_link" placeholder="https://g.page/review/..."
-                    value={formData.review_link} onChange={handleChange} />
-            </div>
-
-            <div className="form-group">
                 <label className="form-label">Google Place ID</label>
                 <input className="form-input" name="google_place_id"
                     placeholder="e.g. ChIJN1t_tDeuEmsRUsoyG83frY4"
@@ -98,6 +92,13 @@ export default function RegisterForm() {
                         How to find it →
                     </a>
                 </p>
+            </div>
+             <p> OR </p><br />
+
+            <div className="form-group">
+                <label className="form-label">Google Review Link</label>
+                <input className="form-input" name="review_link" placeholder="https://g.page/review/..."
+                    value={formData.review_link} onChange={handleChange} />
             </div>
 
             <div className="form-group">
