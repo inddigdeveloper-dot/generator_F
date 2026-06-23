@@ -16,6 +16,8 @@ export default function DashboardPage() {
     const [billItems, setBillItems] = useState(user?.bill_items || "");
     const [qrSrc,     setQrSrc]     = useState(null);
     const [copied,    setCopied]    = useState(false);
+    const [downloadingQr, setDownloadingQr] = useState(false);
+    const [qrDownloaded, setQrDownloaded] = useState(false);
     const [saving,    setSaving]    = useState(false);
     const [saved,     setSaved]     = useState(false);
     const [saveError, setSaveError] = useState("");
@@ -25,6 +27,10 @@ export default function DashboardPage() {
     const reviewUrl = user?.user_name
         ? `${window.location.origin}/r/${user.user_name}`
         : "";
+
+    const qrImageUrl = qrSrc || (reviewUrl
+        ? `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(reviewUrl)}`
+        : "");
 
     useEffect(() => {
         if (!reviewUrl) return;
@@ -52,6 +58,37 @@ export default function DashboardPage() {
             setCopied(true);
             setTimeout(() => setCopied(false), 2000);
         });
+    };
+
+    const handleDownloadQr = async () => {
+        if (!qrImageUrl || downloadingQr) return;
+
+        setDownloadingQr(true);
+        try {
+            const response = await fetch(qrImageUrl);
+            if (!response.ok) throw new Error("Unable to download QR code");
+
+            const imageBlob = await response.blob();
+            const objectUrl = URL.createObjectURL(imageBlob);
+            const link = document.createElement("a");
+            const fileBase = (user?.business_name || user?.user_name || "review")
+                .trim()
+                .replace(/[^a-z0-9]+/gi, "-")
+                .replace(/^-|-$/g, "")
+                .toLowerCase() || "review";
+
+            link.href = objectUrl;
+            link.download = `${fileBase}-qr-code.png`;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(objectUrl);
+
+            setQrDownloaded(true);
+            setTimeout(() => setQrDownloaded(false), 2000);
+        } finally {
+            setDownloadingQr(false);
+        }
     };
 
     const handleSave = async () => {
@@ -121,10 +158,11 @@ export default function DashboardPage() {
                         </div>
 
                         {/* QR image */}
-                        <div className="qr-image-wrap">
-                            {qrSrc || reviewUrl ? (
+                        <div className="qr-image-row">
+                            <div className="qr-image-wrap">
+                            {qrImageUrl ? (
                                 <img
-                                    src={qrSrc || `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(reviewUrl)}`}
+                                    src={qrImageUrl}
                                     alt="Review QR Code"
                                     className="qr-image"
                                 />
@@ -138,6 +176,15 @@ export default function DashboardPage() {
                             <div className="qr-corner qr-corner-tr" />
                             <div className="qr-corner qr-corner-bl" />
                             <div className="qr-corner qr-corner-br" />
+                            </div>
+                            <button
+                                type="button"
+                                className={`qr-download-btn${qrDownloaded ? " qr-download-btn--done" : ""}`}
+                                onClick={handleDownloadQr}
+                                disabled={!qrImageUrl || downloadingQr}
+                            >
+                                {downloadingQr ? "Saving..." : qrDownloaded ? "Saved" : "Download"}
+                            </button>
                         </div>
 
                         <p className="qr-scan-hint">Scan to leave a review</p>
