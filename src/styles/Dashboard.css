@@ -169,19 +169,11 @@
 }
 
 /* QR image */
-.qr-image-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 22px auto 0;
-}
-
 .qr-image-wrap {
   position: relative;
+  margin: 22px auto 0;
   width: 184px;
   height: 184px;
-  flex-shrink: 0;
 }
 
 .qr-image {
@@ -215,21 +207,28 @@
 }
 
 .qr-download-btn {
-  flex-shrink: 0;
-  padding: 7px 9px;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-  border-radius: var(--r-sm);
-  background: rgba(255, 255, 255, 0.14);
-  color: #fff;
-  font-size: 11px;
-  font-weight: 700;
+  position: absolute;
+  top: -13px;
+  right: -13px;
+  z-index: 2;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--brand-red);
   cursor: pointer;
-  transition: background 0.18s var(--ease), border-color 0.18s var(--ease);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease), color 0.18s var(--ease);
 }
 
 .qr-download-btn:hover:not(:disabled) {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px) scale(1.05);
+  background: var(--brand-gold);
+  color: #6b1b0f;
 }
 
 .qr-download-btn:disabled {
@@ -238,9 +237,19 @@
 }
 
 .qr-download-btn--done {
-  background: rgba(16, 185, 129, 0.32);
-  border-color: rgba(167, 243, 208, 0.55);
-  color: #d1fae5;
+  background: #10b981;
+  border-color: #a7f3d0;
+  color: #fff;
+}
+
+.qr-download-btn svg {
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 /* Corner markers */

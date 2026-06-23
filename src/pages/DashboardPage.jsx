@@ -158,8 +158,7 @@ export default function DashboardPage() {
                         </div>
 
                         {/* QR image */}
-                        <div className="qr-image-row">
-                            <div className="qr-image-wrap">
+                        <div className="qr-image-wrap">
                             {qrImageUrl ? (
                                 <img
                                     src={qrImageUrl}
@@ -176,14 +175,23 @@ export default function DashboardPage() {
                             <div className="qr-corner qr-corner-tr" />
                             <div className="qr-corner qr-corner-bl" />
                             <div className="qr-corner qr-corner-br" />
-                            </div>
                             <button
                                 type="button"
                                 className={`qr-download-btn${qrDownloaded ? " qr-download-btn--done" : ""}`}
                                 onClick={handleDownloadQr}
                                 disabled={!qrImageUrl || downloadingQr}
+                                aria-label={downloadingQr ? "Downloading QR code" : "Download QR code"}
+                                title="Download QR code"
                             >
-                                {downloadingQr ? "Saving..." : qrDownloaded ? "Saved" : "Download"}
+                                {qrDownloaded ? (
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="m5 12 4 4L19 6" />
+                                    </svg>
+                                ) : (
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 3v11m0 0 4-4m-4 4-4-4M5 21h14" />
+                                    </svg>
+                                )}
                             </button>
                         </div>
 
