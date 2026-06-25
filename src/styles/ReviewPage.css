@@ -219,6 +219,21 @@
   box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
 }
 
+.review-btn-open--disabled,
+.review-btn-open:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.review-btn-open--disabled:hover,
+.review-btn-open:disabled:hover {
+  background: linear-gradient(135deg, #059669, #10b981);
+  transform: none;
+  box-shadow: none;
+}
+
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 .review-page-footer {
   text-align: center;

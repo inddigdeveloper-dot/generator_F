@@ -238,7 +238,7 @@ export default function ReviewPage() {
 
                             {/* Action buttons */}
                             <div className="review-actions">
-                                {selected !== null ? (
+                                {selected !== null && googleUrl ? (
                                     <a
                                         className="review-btn-open"
                                         href={googleUrl}
@@ -248,6 +248,12 @@ export default function ReviewPage() {
                                         ⭐ Open Google Review
                                     </a>
                                 ) : (
+                                    <button className="review-btn-open review-btn-open--disabled" disabled>
+                                        ⭐ Open Google Review
+                                    </button>
+                                )}
+
+                                {selected === null && (
                                     <p className="review-select-hint">← Swipe and tap a review to select it</p>
                                 )}
 
