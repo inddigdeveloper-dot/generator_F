@@ -21,6 +21,7 @@ export default function ReviewPage() {
     const [googleUrl,  setGoogleUrl]  = useState("");
     const [generating, setGenerating] = useState(false);
     const [genError,   setGenError]   = useState("");
+    const [textCopied, setTextCopied] = useState(false);
 
     const scrollRef = useRef(null);
 
@@ -42,6 +43,7 @@ export default function ReviewPage() {
         setGenError("");
         setReviews([]);
         setSelected(null);
+        setTextCopied(false);
         setActiveIdx(0);
         setGoogleUrl("");
 
@@ -92,6 +94,7 @@ export default function ReviewPage() {
         if (!reviewText) return;
 
         setSelected(idx);
+        setTextCopied(true);
         scrollToCard(idx);
         copyReviewText(reviewText);
     }
@@ -101,6 +104,7 @@ export default function ReviewPage() {
         setExperience("");
         setReviews([]);
         setSelected(null);
+        setTextCopied(false);
         setActiveIdx(0);
         setGoogleUrl("");
         setGenError("");
@@ -151,7 +155,7 @@ export default function ReviewPage() {
                             <button
                                 key={n}
                                 className={`review-star-btn${displayRating >= n ? (hovered ? " preview" : " active") : ""}`}
-                                onClick={() => { setRating(n); setReviews([]); setSelected(null); }}
+                                onClick={() => { setRating(n); setReviews([]); setSelected(null); setTextCopied(false); }}
                                 onMouseEnter={() => setHovered(n)}
                                 onMouseLeave={() => setHovered(0)}
                                 aria-label={`${n} star${n > 1 ? "s" : ""}`}
@@ -164,7 +168,7 @@ export default function ReviewPage() {
                         className="review-textarea"
                         placeholder="Describe your visit (optional) — the more you share, the more unique each review..."
                         value={experience}
-                        onChange={e => { setExperience(e.target.value); setReviews([]); setSelected(null); }}
+                        onChange={e => { setExperience(e.target.value); setReviews([]); setSelected(null); setTextCopied(false); }}
                         rows={3}
                     />
 
@@ -251,6 +255,10 @@ export default function ReviewPage() {
                                     <button className="review-btn-open review-btn-open--disabled" disabled>
                                         ⭐ Open Google Review
                                     </button>
+                                )}
+
+                                {textCopied && (
+                                    <p className="review-copy-confirm">Text is Copied !</p>
                                 )}
 
                                 {selected === null && (
