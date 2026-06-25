@@ -194,60 +194,6 @@
   box-shadow: none;
 }
 
-/* "Ready to Review" — opens Google */
-.review-btn-open {
-  width: 100%;
-  padding: 15px;
-  border-radius: var(--r-md);
-  background: linear-gradient(135deg, #059669, #10b981);
-  color: #fff;
-  font-size: 16px;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
-  transition: all 0.2s var(--ease);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-}
-
-.review-btn-open:hover {
-  background: linear-gradient(135deg, #047857, #059669);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
-}
-
-.review-btn-copy {
-  width: 100%;
-  padding: 11px;
-  border-radius: var(--r-md);
-  background: var(--btn-ghost-bg);
-  border: 1px solid var(--border);
-  color: var(--text-2);
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.18s var(--ease);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
-.review-btn-copy:hover {
-  background: var(--btn-ghost-hover);
-  border-color: rgba(236, 27, 36, 0.2);
-}
-
-.review-btn-copy.copied {
-  background: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.35);
-  color: #059669;
-}
-
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 .review-page-footer {
   text-align: center;

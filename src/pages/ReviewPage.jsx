@@ -21,7 +21,6 @@ export default function ReviewPage() {
     const [googleUrl,  setGoogleUrl]  = useState("");
     const [generating, setGenerating] = useState(false);
     const [genError,   setGenError]   = useState("");
-    const [copied,     setCopied]     = useState(false);
 
     const scrollRef = useRef(null);
 
@@ -83,17 +82,24 @@ export default function ReviewPage() {
         setActiveIdx(Math.max(0, Math.min(idx, reviews.length - 1)));
     }
 
-    function handleSelectCard(idx) {
-        setSelected(idx);
-        setCopied(false);
-        scrollToCard(idx);
+    function copyReviewText(text) {
+        if (!navigator.clipboard?.writeText) return;
+        navigator.clipboard.writeText(text).catch(() => {});
     }
 
-    function handleCopy() {
-        if (selected === null) return;
-        navigator.clipboard.writeText(reviews[selected]);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+    function handleSelectCard(idx) {
+        const reviewText = reviews[idx];
+        if (!reviewText) return;
+
+        setSelected(idx);
+        scrollToCard(idx);
+        copyReviewText(reviewText);
+
+        if (googleUrl) {
+            window.open(googleUrl, "_blank", "noopener,noreferrer");
+        } else {
+            setGenError("Google review link is not configured for this business.");
+        }
     }
 
     function resetInput() {
@@ -189,7 +195,7 @@ export default function ReviewPage() {
                         <>
                             <div className="review-carousel-header">
                                 <span className="review-carousel-label">
-                                    Swipe to browse · tap to select
+                                    Swipe to browse · tap to open Google
                                 </span>
                                 <span className="review-carousel-counter">
                                     {activeIdx + 1} / {reviews.length}
@@ -217,7 +223,7 @@ export default function ReviewPage() {
                                             </div>
                                             <p className="review-card-text">{text}</p>
                                             {selected !== idx && (
-                                                <span className="review-card-tap-hint">Tap to select</span>
+                                                <span className="review-card-tap-hint">Tap to open Google</span>
                                             )}
                                         </div>
                                     </div>
@@ -238,26 +244,8 @@ export default function ReviewPage() {
 
                             {/* Action buttons */}
                             <div className="review-actions">
-                                {selected !== null ? (
-                                    <>
-                                        <button
-                                            className={`review-btn-copy ${copied ? "copied" : ""}`}
-                                            onClick={handleCopy}
-                                        >
-                                            {copied ? "✓ Copied!" : "📋 Copy Selected Review"}
-                                        </button>
-
-                                        <a
-                                            className="review-btn-open"
-                                            href={googleUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            ⭐ Open Google Review
-                                        </a>
-                                    </>
-                                ) : (
-                                    <p className="review-select-hint">← Swipe and tap a review to select it</p>
+                                {selected === null && (
+                                    <p className="review-select-hint">← Swipe and tap a review to open Google</p>
                                 )}
 
                                 <button
