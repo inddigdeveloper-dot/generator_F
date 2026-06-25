@@ -94,12 +94,6 @@ export default function ReviewPage() {
         setSelected(idx);
         scrollToCard(idx);
         copyReviewText(reviewText);
-
-        if (googleUrl) {
-            window.open(googleUrl, "_blank", "noopener,noreferrer");
-        } else {
-            setGenError("Google review link is not configured for this business.");
-        }
     }
 
     function resetInput() {
@@ -195,7 +189,7 @@ export default function ReviewPage() {
                         <>
                             <div className="review-carousel-header">
                                 <span className="review-carousel-label">
-                                    Swipe to browse · tap to open Google
+                                    Swipe to browse · tap to select
                                 </span>
                                 <span className="review-carousel-counter">
                                     {activeIdx + 1} / {reviews.length}
@@ -223,7 +217,7 @@ export default function ReviewPage() {
                                             </div>
                                             <p className="review-card-text">{text}</p>
                                             {selected !== idx && (
-                                                <span className="review-card-tap-hint">Tap to open Google</span>
+                                                <span className="review-card-tap-hint">Tap to select</span>
                                             )}
                                         </div>
                                     </div>
@@ -244,8 +238,17 @@ export default function ReviewPage() {
 
                             {/* Action buttons */}
                             <div className="review-actions">
-                                {selected === null && (
-                                    <p className="review-select-hint">← Swipe and tap a review to open Google</p>
+                                {selected !== null ? (
+                                    <a
+                                        className="review-btn-open"
+                                        href={googleUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        ⭐ Open Google Review
+                                    </a>
+                                ) : (
+                                    <p className="review-select-hint">← Swipe and tap a review to select it</p>
                                 )}
 
                                 <button

@@ -194,6 +194,31 @@
   box-shadow: none;
 }
 
+.review-btn-open {
+  width: 100%;
+  padding: 15px;
+  border-radius: var(--r-md);
+  background: linear-gradient(135deg, #059669, #10b981);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+  transition: all 0.2s var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.review-btn-open:hover {
+  background: linear-gradient(135deg, #047857, #059669);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.5);
+}
+
 /* ─── Footer ─────────────────────────────────────────────────────────────── */
 .review-page-footer {
   text-align: center;
